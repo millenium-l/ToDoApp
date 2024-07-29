@@ -1,10 +1,13 @@
 # mapping our views from the views file
-from operator import index
+from operator import index # not a must
 from django.urls import path
 # importing the view you want to map fro the url
-from .views import hello, index
+from .views import hello, index, task_list, task_detail, task_create
 
 urlpatterns = [
-    path('', hello),
-    path('index/', index, name='index')
+    path('', task_list, name='list'),
+    path('detail/<int:id>/', task_detail, name='detail'),# we are passing an argument
+    path('create/', task_create, name='create'),
+    path('hello/', hello),
+    path('index/', index, name='index'),
 ]
