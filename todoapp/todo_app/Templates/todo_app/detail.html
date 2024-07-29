@@ -14,7 +14,17 @@
         <p>Completed: {{ task.status }}</p>
     </div>
 
-
-    <a href="{% url 'list' %}">Back to task list</a>
+    <p>
+        <a href="{% url 'update' task.id %}">update Task</a>
+    </p>
+    
+    <p>
+         <a href="{% url 'delete' task.id %}">delete Task</a>
+    </p>
+   
+    <p>
+        <a href="{% url 'list' %}">Back to task list</a>
+    </p>
+    
 </body>
 </html>
