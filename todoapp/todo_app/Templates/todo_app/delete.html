@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoApp: Delete</title>
-</head>
-<body>
-    <h1>Delete task</h1>
+{% extend 'base.html' %}
+{% block content %}
     <div>
         <form method="post">
             {% csrf_token %} <!-- makes form submitted secure-->
@@ -15,5 +8,5 @@
             <button type="submit">Yes, Delete Task</button>
         </form>
     </div>
-</body>
-</html>
+
+    {% endblock content %}

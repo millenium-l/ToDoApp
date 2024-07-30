@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoApp: create</title>
-</head>
-<body>
-    <h1>Add a new task</h1>
+{% extend 'base.html' %}
+{% block content %}
     <div>
         <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %} <!-- makes form submitted secure-->
@@ -14,5 +7,5 @@
             <button type="submit">Create Task</button>
         </form>
     </div>
-</body>
-</html>
+
+    {% endblock content %}
