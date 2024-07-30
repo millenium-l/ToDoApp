@@ -8,7 +8,7 @@
 <body>
     <h1>update task</h1>
     <div>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %} <!-- makes form submitted secure-->
             {{ form.as_p }}
             <button type="submit">Update Task</button>

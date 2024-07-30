@@ -55,7 +55,7 @@ ROOT_URLCONF = 'todoapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templets'],
+        'DIRS': ['templats'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,6 +120,10 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     'todo_app/static'
 ]
+
+# media files
+MEDIA_URL = 'media/'
+MEDIAROOT = 'todo_app/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
