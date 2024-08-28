@@ -2,13 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Task
 from .forms import TaskCreateForm
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 # takes a request and returns a response
 #map the view on a url file
 # not necesarry
 def hello(request):
-    return HttpResponse("<h1>This is our basic todo app<h1>")
+    return HttpResponse("<h1>This is our basic todo app</h1>")
 
 # returning html requests
 def index(request):
@@ -20,7 +21,18 @@ def index(request):
 # taking request from models for users to viewers to use it
 def task_list(request):
     tasks = Task.objects.all()
-    return render(request, 'todo_app/list.html', {'tasks':tasks})
+    paginator = Paginator(tasks, 2, orphans=1, allow_empty_first_page=True)# orphans are used to increase the numbers of tasks in the last page
+    page = request.GET.get('page')
+
+    try:
+        paginated_tasks = paginator.page(page)
+    except PageNotAnInteger:
+    # If page is not an integer, deliver the first page.
+        paginated_tasks = paginator.page(1)
+    except EmptyPage:
+    # If page is out of range (e.g., 9999), deliver last page of results.
+        paginated_tasks = paginated_tasks.page(paginator.num_pages)
+    return render(request, 'todo_app/list.html', {'tasks':paginated_tasks})
 
 def task_detail(request, id):
     tasks = get_object_or_404(Task, id=id) # we are passing an argument
