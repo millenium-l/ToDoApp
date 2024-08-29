@@ -135,3 +135,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'index'# WHERE WE WANT THE PAGE TO GO TO when the user LOGS IN
 LOGOUT_REDIRECT_URL = '/auth/login/'
 LOGIN_URL = 'login/'
+
+if DEBUG:
+    INTERNAL_IPS = ['127.0.0.1']
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+    INSTALLED_APPS += ['debug_toolbar']

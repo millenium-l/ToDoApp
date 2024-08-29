@@ -1,5 +1,5 @@
 from django.contrib import admin
-from.models import Task
+from.models import Task,Author
 
 
 class TaskModel(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class TaskModel(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Task, TaskModel)
+admin.site.register(Author)
