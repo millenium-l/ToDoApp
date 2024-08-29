@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo_app',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,8 @@ MEDIAROOT = 'todo_app/media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authentication
+LOGIN_REDIRECT_URL = '/'# WHERE WE WANT THE PAGE TO GO TO when the user LOGS IN
+LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_URL = '/=login/'
