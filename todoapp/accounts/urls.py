@@ -1,6 +1,8 @@
 from django.urls import path
 from .import views
 
+app_name = 'auth'
+
 # configure account urls
 urlpatterns = [
     path('login/', views.user_login, name='login'),

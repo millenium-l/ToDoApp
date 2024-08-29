@@ -3,6 +3,9 @@ from operator import index # not a must
 from django.urls import path
 # importing the view you want to map fro the url
 from .views import hello, index, task_list, task_detail, task_create, task_update, task_delete
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView
+
 
 urlpatterns = [
     path('', task_list, name='list'),
@@ -12,4 +15,5 @@ urlpatterns = [
     path('create/', task_create, name='create'),
     path('hello/', hello),
     path('index/', index, name='index'),
+    path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
 ]

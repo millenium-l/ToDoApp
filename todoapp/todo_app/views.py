@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from .models import Task
 from .forms import TaskCreateForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.contrib.auth.decorators import login_required 
+
+# logindecorator is used to allow specific users to access specific documents
 
 # Create your views here.
 # takes a request and returns a response
@@ -42,6 +45,7 @@ def task_detail(request, id):
 from django.shortcuts import render, redirect
 from .forms import TaskCreateForm
 
+@login_required
 def task_create(request):
     if request.method == 'POST':
         form = TaskCreateForm(request.POST)
@@ -54,6 +58,7 @@ def task_create(request):
     # Render the form with errors (if any) or as a new form
     return render(request, 'todo_app/create.html', {'form': form})
 
+@login_required
 def task_update(request, id):
     task = get_object_or_404(Task, id=id)
     if request.method == 'POST':
@@ -67,7 +72,7 @@ def task_update(request, id):
 
     return render(request, 'todo_app/update.html', {'form':form})
 
-
+@login_required
 def task_delete(request, id):
     task = get_object_or_404(Task, id=id)
     if request.method == 'POST':

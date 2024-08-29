@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout
 # Create your views here
 # we handle the registration logic.
 # a user can register in the site
-def register(request):
+def user_register(request):
     if request.method == 'post':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -19,8 +19,8 @@ def register(request):
         
 # we handle the login logic
 # a user can login in the site
-def login(request):
-    if request.methid == 'post':
+def user_login(request):
+    if request.method == 'post':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user
@@ -36,6 +36,6 @@ def login(request):
 # a user can logout from the website
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    return redirect('auth:login')
 
 

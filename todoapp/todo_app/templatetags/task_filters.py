@@ -1,6 +1,6 @@
 from django import template
 
-register = template.library()
+register = template.Library()
 
 @register.filter(name='task_status')
 def task_status(value):

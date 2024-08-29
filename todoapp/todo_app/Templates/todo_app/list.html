@@ -17,7 +17,8 @@
                 <p>Title: <a href="{% url 'detail' task.id %}">{{ task.title }}</a></p>
             </li>
 
-            {{ task/status|task_status }}
+            {{ task.status|task_status }}
+
             {% endfor %} <!-- end loop -->
         </ol>
 

@@ -132,6 +132,6 @@ MEDIAROOT = 'todo_app/media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Authentication
-LOGIN_REDIRECT_URL = '/'# WHERE WE WANT THE PAGE TO GO TO when the user LOGS IN
-LOGOUT_REDIRECT_URL = '/login/'
-LOGIN_URL = '/=login/'
+LOGIN_REDIRECT_URL = 'index'# WHERE WE WANT THE PAGE TO GO TO when the user LOGS IN
+LOGOUT_REDIRECT_URL = '/auth/login/'
+LOGIN_URL = 'login/'
