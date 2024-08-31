@@ -14,4 +14,4 @@ class Task(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, blank=True)  # Allows null values
 
     def __str__(self):
-        return f"title: {self.title}\nstatus: {self.status}"  # Added space after 'status'
+        return f"title: {self.title}\nstatus: {self.status}"
